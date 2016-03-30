@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      .chart {
+        border: 1px solid red;
+      }
+      .bar {
+        background-color: red; 
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="chart">
+      <div id="x" class="bar">X</div>
+      <div id="y" class="bar">Y</div>
+      <div id="z" class="bar">Z</div>
+    </div>
+
+    <script>
+      var maxBarLength = window.innerWidth * 0.8;
+      window.addEventListener("devicemotion", handleMotionEvent, true);
+
+      function handleMotionEvent(event) {
+          var x = event.accelerationIncludingGravity.x;
+          var y = event.accelerationIncludingGravity.y;
+          var z = event.accelerationIncludingGravity.z;
+          setBarLength('x', x);
+          setBarLength('y', y);
+          setBarLength('z', z);
+      }
+
+      function setBarLength (theBarId, theLength) {
+        document.getElementById(theBarId).style.width = theLength * maxBarLength / 50;
+      }
+    </script>
+
+  </body>
+</html>

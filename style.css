@@ -1,0 +1,44 @@
+#about{
+	background-color: #A9E2F3;
+	height: 150px; 
+	width: 1570px;
+	text-align: center;
+	
+}
+#container{
+	text-align: center;
+	background-image: url(img/S2bcstudios%20-%20Website%20Design%20%20Website%20Development%20%20SEO%20Service%20%20NYC%20%20New%20York%20City-1.jpg);
+	height: 450px;
+	width: 1570px;
+	margin:0px;
+	padding: 0px;
+	clear: none;
+	float: none;
+	}
+
+
+#services{
+	background-color: #00FFFF;
+	height: 400px;
+	width: 1570px;
+}  
+#mywork{
+	background-image: url(devsofttech.jpg);
+	background-color: #40FF00;
+	height: 400px;
+	width: 1570px;
+} 
+#googlemap{
+	background-color: #FFFFFF;
+	height: 400px;
+	width: 1570px;
+}  
+#address{
+	background-color: #DF0174;
+	height: 400px;
+	width: 1570px;
+	text-align: center;
+	font-size: 48px;
+	font-family: helvetica;
+	
+}

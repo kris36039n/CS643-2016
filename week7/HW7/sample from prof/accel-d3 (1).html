@@ -1,0 +1,39 @@
+<html> 
+  <head> 
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      .chart {
+        border: 1px solid blue; 
+      }
+      .bar {
+        background-color: blue; 
+        margin: 5px;
+        white-space: nowrap;
+      }
+    </style>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head> 
+  <body> 
+
+    <div class="chart">
+      <div id="x" class="bar">X</div>
+      <div id="y" class="bar">Y</div>
+      <div id="z" class="bar">Z</div>
+    </div>
+
+    <script>
+      var maxBarLength = window.innerWidth * 0.8;
+      window.addEventListener("devicemotion", handleMotionEvent, true);
+
+      function handleMotionEvent(event) {
+          var a = event.accelerationIncludingGravity;
+          var arr = [a.x, a.y, a.z];
+          d3.selectAll(".bar")
+            .data(arr)
+            .text(function(d) { return (d) ? d.toFixed(1) + " m/s" : "Try this on a phone"; })
+            .style("width", function(d) { return (d * maxBarLength / 50) + "px"; });
+      }
+    </script> 
+
+  </body> 
+</html>

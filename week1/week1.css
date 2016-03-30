@@ -1,0 +1,32 @@
+/* CSS Document */
+
+body {
+background-color:#FFFF99;
+font:"Times New Roman", Times, serif;
+}
+h1{
+color:#000066;
+text-align:center;
+}
+
+h2{
+color:#0033FF;
+text-align:center;
+}
+.b1 {
+border: 1px solid #9fa834;
+			color: #9fa834;
+			background-color: #080808;
+			padding: 8px 12px;
+			margin-top: 25px;
+			cursor: pointer;			
+		}
+		
+		.b1:hover {
+			background-color: #9fa834;
+			color: black;
+		}
+img {
+height: auto;
+width: auto;
+}

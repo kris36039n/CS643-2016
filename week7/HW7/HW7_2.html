@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+@mixin themedHeading($baseColor) {
+	color: $baseColor;
+	background-color: transparentize($baseColor,0.9);
+	border: 1px solid darken(transparentize($baseColor,0.9), 10%);
+}
+
+.coolBackground {
+	@include background-image(linear-gradient(to top left, white, #0044cc));
+}
+
+.mediumBox {
+	height: $box-width;
+	width: $box-width;
+	@extend .coolBorder;
+
+	h1 {
+		@include themedHeading(#a41298);
+	}
+}
+.largeBox {
+	height: $box-width * 2;
+	width: $box-width * 2;
+}
+
+
+
+
+
+
+.wandering {
+	background-color: orange;
+	position: absolute;
+	top: 100px; left: 100px; width: 100px; height: 100px;
+}
+#container {height: 100%; width: 100%; background-color: blue}
+</style>
+</head>
+<body onLoad="init()">
+
+	<div class="coolBackground1 largeBox">
+		<h1>First Box</h1>
+
+
+
+
+
+<div id="container"></div>
+<script>
+function init() {
+	var container = document.getElementById('container');
+	for (var n=0; n<100; n++) {
+		container.innerHTML += "<div class='wandering'></div>";
+	}
+}
+
+document.onmousemove = function(e) {
+	var them = document.getElementsByClassName("wandering");
+	for (var n=0; n<them.length; n++) {
+		them[n].style.top = ((e.clientY + Math.random()*500)-250) + "px";
+		them[n].style.left = ((e.clientX + Math.random()*500)-250) + "px";
+	}
+}
+</script>
+</body>
+</html>

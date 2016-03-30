@@ -1,0 +1,28 @@
+@import "compass";
+@import "compass/reset";
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+
+
+}
+	@mixin circle
+	 {
+	 @include border-radius(100%);
+	 }
+
+.Box {
+	 	height: $box-width * 2;
+	 	width: $box-width * 2;
+	 }
+
+
+#Toolbar{
+  display:flex;
+  flex:basis;
+  width:98%;
+  height:10%;
+  justify-content:space-between;
+  padding: 0;
+  flex-direction:row;
+  position: absolute;
+
+}

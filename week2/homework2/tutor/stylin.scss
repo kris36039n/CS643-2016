@@ -1,0 +1,50 @@
+@import "compass";
+@import "compass/reset";
+
+$box-width: 100px;
+
+div {
+	margin: 10px;
+	padding: 10px;
+	font: bold 12pt Verdana;
+	border-radius: 25px;
+}
+.coolShadow {
+	text-shadow: 2px 2px black;
+	box-shadow: 5px 5px blue;
+}
+.coolBorder {
+	border: 3px solid black;
+}
+
+@mixin themedHeading($baseColor) {
+	color: $baseColor;
+	background-color: transparentize($baseColor,0.9);
+	border: 1px solid darken(transparentize($baseColor,0.9), 10%);
+}
+
+.coolBackground {
+	@include background-image(linear-gradient(to top left, white, yellow));
+	
+}
+
+.my-gradient {
+	@include background-image(linear-gradient(to bottom right, black, #FF04CE));
+	background-repeat: no-repeat;
+}
+
+.mediumBox {
+	height: $box-width;
+	width: $box-width;
+	@extend .coolBorder;
+
+	h1 {
+		@include themedHeading(#a41298);
+	}
+}
+
+.largeBox {
+	height: $box-width * 2;
+	width: $box-width * 2;
+	
+}

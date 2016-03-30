@@ -1,0 +1,108 @@
+@import "compass";
+@import "compass/reset";
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+
+$baseColor: rgb(255, 100, 100);
+$baseColorDarkened: darken($baseColor, 30%);
+$baseFontFamily: 'Titillium Web', Verdana;
+
+body {
+	background: no-repeat fixed 100% 100%;
+	@include background-image(linear-gradient(#ddd, #eee));
+	height: 100%;
+	font-family: $baseFontFamily;
+	margin: 10px;
+}
+
+header {
+	h1 {
+		font-size: 60px;
+		margin: 10px;
+	}
+}
+
+.corporateBoxes {
+	display: flex;
+	flex-flow:row wrap; // without this they will all be on one wide row
+	justify-content: space-between;
+}
+
+.corporateBoxes > .corporateBox {
+	@include background-image(linear-gradient($baseColorDarkened, $baseColor));
+	@include border-radius(0.5em);
+	@include box-shadow(rgba(black, 0.3) 6px 6px 3px, rgba(white, 0.5) 0 0 3px 1px inset);
+
+	border: 1px solid $baseColorDarkened;
+	margin: 10px;
+	padding: 10px 16px; // more horizontal padding to push the text away from the left edge of the box
+	height: 255px;
+	font: normal 12px $baseFontFamily;
+	color: white;
+
+	h2 {
+		font-size: 20px;
+		margin-bottom: 8px;
+	}
+
+	p.imgContainer {
+		&>img {
+			width: 100%;
+			height: auto;
+			opacity: 0.3;
+		}
+	}
+
+	&.medium {
+		flex: 2;
+		min-width: 200px;
+	}
+
+}
+
+
+@media only screen and (max-width: 768px) {
+ 	.medium {
+		min-width:100% !important;
+		margin: 0 !important;
+	}
+	body {
+		margin: 0;
+	}
+}   
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@include keyframes(no-anim) {
+  
+}
+
+
+@mixin animation ($stuff ) {
+    -webkit-animation: $stuff;
+    -moz-animation: $stuff;
+    -ms-animation: $stuff;
+    animation: $stuff;
+}
+
+p{
+	@include animation(color-change 1s infinite);
+}
+
+@include keyframes(color-change) {
+ 	 0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}
