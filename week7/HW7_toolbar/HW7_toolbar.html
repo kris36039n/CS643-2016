@@ -4,27 +4,81 @@
   <meta charset="utf-8"  />
   <title>Toolbar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="stylesheet" type="text/css" href="css/HW7_toolbar.css" />
-  <script>
-
+  <link rel="stylesheet" type="text/css" href="css/HW7_toolbar.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js">
   </script>
+
+
 </head>
 
+
 <body>
-
-
-  <div id="Toolbar">
-    <div class="Box">
-      <h1>First Box</h1>
-  <div class="grey1" >Click for color</div>
-  <div class="red" onclick="document.changeColor('red')"></div>
-  <div class="orange"onclick="document.changeColor('orange')"></div>
-  <div class="yellow"onclick="document.changeColor('yellow')"></div>
-  <div class="green"onclick="document.changeColor('green')"></div>
-  <div class="blue"onclick="document.changeColor('blue')"></div>
-  <div class="purple" onclick="document.changeColor('purple')"><p></div>
+  <div id="container">
+  <button id="clear" onclick="clearCanvas()">clear</button>
+  <button id="green" onclick="changeColor('green')">green</button>
+  <button id="yellow" onclick="changeColor('yellow')">yellow</button>
+  <button id="blue" onclick="changeColor('blue')">blue</button>
+  <button id="black" onclick="changeColor('black')">black</button>
+  <button id="small" onclick="smallSize()">small</button>
+  <button id="medium" onclick="mediumSize()">medium</button>
+  <button id="large" onclick="largeSize()">large</button>
   </div>
+
+
+
+
+
+<!--<canvas id="c" width="1400" height="770">-->
+  <canvas id="c" width=100% height=100%>
+  </canvas>
+
+
+  <script>
+  var grow=10;
+  var canvas = document.getElementById("c");
+  canvas.width =window.innerWidth;
+  canvas.height =window.innerHeight;
+
+  var c = canvas.getContext("2d");
+  c.fillStyle = "white";
+
+  var brush = 30;
+
+  function drawSquare(x, y) {
+    c.fillRect(x, y, brush, brush);
+  }
+
+  document.ontouchmove = function(e) {
+    e.preventDefault();
+    for (var n=0; n<e.touches.length; n++) {
+      drawSquare(e.touches[n].pageX, e.touches[n].pageY);
+    }
+  }
+
+  document.onmousemove = function(e) {
+    drawSquare(e.clientX, e.clientY);
+  }
+
+  function clearCanvas(){
+    c.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  function changeColor(color){
+    c.fillStyle = color;
+  }
+
+  function smallSize(){
+    brush = 10;
+  }
+  function mediumSize(){
+    brush = 40;
+  }
+  function largeSize(){
+    brush = 80;
+  }
+
+
+</script>
+
 
 </body>
 

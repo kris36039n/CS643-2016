@@ -1,28 +1,31 @@
 @import "compass";
 @import "compass/reset";
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+$baseColor: #00c1d7;
+$baseColorDarkened: darken($baseColor, 10%);
+$baseFontFamily: 'Titillium Web', Verdana;
 
-
+body{
+		margin: 0;
+		padding: 30px;
+		background-color: #FF4000;
 }
-	@mixin circle
-	 {
-	 @include border-radius(100%);
-	 }
 
-.Box {
-	 	height: $box-width * 2;
-	 	width: $box-width * 2;
-	 }
+button{
+		 height: 50px;
+		 width: 80px;
+		 background-color: #E0F8F7;
+}
+
+#container {
+	z-index: 5;
+	position: absolute;
+}
 
 
-#Toolbar{
-  display:flex;
-  flex:basis;
-  width:98%;
-  height:10%;
-  justify-content:space-between;
-  padding: 0;
-  flex-direction:row;
-  position: absolute;
-
+/* this code is to set the canvas to the top left*/
+#c {
+	position: absolute;
+	top: 0;
+	left: 0;
 }

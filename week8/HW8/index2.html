@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"  />
+
+  <title>D3</title>
+
+ <script src="d3.min.js" charset="utf-8">
+</script>
+
+
+
+
+
+  <style>
+
+  </style>
+
+</head>
+<header>
+  This is D3 file
+  </header>
+<body>
+<object data="HW8.svg" width="500" height="500" type="image/svg+xml" />
+
+<script>
+var bodySelection = d3.select("body")
+var svgSelection = bodySelection.append("object")
+                                .attr("width",250)
+                                .attr("height",250)
+                                .attr("data", "HW8.svg")
+
+
+
+
+
+</script>
+
+</body>
+
+</html>

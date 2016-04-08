@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+<!--    <style>
+      .chart {
+        border: 1px solid blue;
+      }
+      .bar {
+        background-color: blue;
+        margin: 5px;
+        white-space: nowrap;
+      }
+    </style>-->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+
+    <!-- The SVG saved from Illustrator with ID='illustratorChart' and the 'bar' classes added by me. The 'cls-n' classes
+    were included by Illustrator. -->
+
+    <svg id="illustratorChart" data-name="barchart1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 363.02 119.2">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #4F6CC5;
+          }
+
+          .cls-1, .cls-2, .cls-3 {
+            stroke: #231f20;
+            stroke-miterlimit: 10;
+          }
+
+          .cls-2 {
+            fill: ECEC85;
+          }
+
+          .cls-3 {
+            fill: #A6A670;
+          }
+        </style>
+      </defs>
+      <title>bars-illustrator</title>
+      <rect class="cls-1 bar" x="1.5" y="0.5" width="361.02" height="32.2"/>
+      <rect class="cls-2 bar" x="0.5" y="44.5" width="361.02" height="32.2"/>
+      <rect class="cls-3 bar" x="0.5" y="86.5" width="361.02" height="32.2"/>
+    </svg>
+
+    <script>
+      var maxBarLength = window.innerWidth * 0.8;
+      window.addEventListener("devicemotion", handleMotionEvent, true);
+
+      function handleMotionEvent(event) {
+          var a = event.accelerationIncludingGravity;
+          var arr = [a.x, a.y, a.z];
+          d3.selectAll(".bar")
+            .data(arr)
+            .text(function(d) { return (d) ? d.toFixed(1) + " m/s" : "Try this on a phone"; })
+            .style("width", function(d) { return (d * maxBarLength / 50) + "px"; });
+      }
+    </script>
+
+  </body>
+</html>
